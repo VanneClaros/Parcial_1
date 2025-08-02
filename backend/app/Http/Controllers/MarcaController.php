@@ -40,7 +40,7 @@ class MarcaController extends Controller
      */
     public function show(string $id)
     {
-        // 
+          // 
         $marcas = Marcas::find($id);
 
         if(!$marcas){

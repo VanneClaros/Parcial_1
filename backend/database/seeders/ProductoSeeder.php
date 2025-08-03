@@ -16,18 +16,18 @@ class ProductoSeeder extends Seeder
         //
         DB::table('productos')->insert([
         [
-        'nombre' => 'Tenis',
-        'precio' => 120.00,
-        'marcas_id' => 1, // ID de la marca
-        'created_at' => now(),
-        'updated_at' => now(),
+        'nombre'=>'Tenis',
+        'precio'=> 120.00,
+        'marcas_id'=> 1, 
+        'created_at'=> now(),
+        'updated_at'=> now(),
     ],
     [
-        'nombre' => 'Poleras',
-        'precio' => 100.00,
-        'marcas_id' => 2, // ID de la marca 
-        'created_at' => now(),
-        'updated_at' => now(),
+        'nombre'=>'Poleras',
+        'precio'=> 100.00,
+        'marcas_id'=> 2, 
+        'created_at'=> now(),
+        'updated_at'=> now(),
     ]
     ]);
     }

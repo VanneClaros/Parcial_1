@@ -24,7 +24,8 @@ class ProductoController extends Controller
         //validación
         $request->validate([
             'nombre'=>'required',
-            'precio'=>'required'
+            'precio'=>'required',
+            'marcas_id'=>'required'
         ]);
 
         $productos = Productos::create($request->all());
@@ -41,6 +42,18 @@ class ProductoController extends Controller
     public function show(string $id)
     {
         //
+        $productos = Productos::find($id);
+
+        if(!$productos){
+
+            return response()->json(
+                [
+                    'mensaje'=>'Producto no encontrado'
+                ],404
+                );
+        }
+
+        return response()->json($productos,200);
     }
 
     /**
@@ -48,7 +61,29 @@ class ProductoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        //validación
+        $request->validate([
+            'nombre'=>'required',
+            'precio'=>'required',
+            'marcas_id'=>'required'
+        ]);
+
+        $productos = Productos::find($id);
+        
+        if(!$productos){
+
+            return response()->json(
+                [
+                    'mensaje'=>'Producto no encontrada'
+                ],404
+                );
+        }
+        $productos->update($request->all());
+        
+        return response()->json([
+            'mensaje'=>'Producto actualizado exitosamente',
+            'productos'=> $productos
+        ],201);
     }
 
     /**
@@ -56,6 +91,6 @@ class ProductoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+      //
     }
 }

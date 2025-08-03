@@ -8,7 +8,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    //
+    //Validacion login
     public function login(Request $request)
     {
         $request->validate([
